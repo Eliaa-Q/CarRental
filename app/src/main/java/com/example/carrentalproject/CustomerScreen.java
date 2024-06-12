@@ -93,6 +93,7 @@ public class CustomerScreen extends AppCompatActivity {
 
                         intent.putExtra("customerID",idNumber.toString());
                         startActivity(intent);
+                        finish();
                     } else {
                         Toast.makeText(CustomerScreen.this, message, Toast.LENGTH_SHORT).show();
                         if (message.contains("Please sign up")) {

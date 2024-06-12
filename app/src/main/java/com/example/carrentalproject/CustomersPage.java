@@ -252,6 +252,8 @@ public class CustomersPage extends AppCompatActivity implements Response.Listene
                         } else {
                             Log.w("CarFetcher", "Empty JSON response from server");
                             // Handle empty response (e.g., display a message indicating no cars found)
+                            carList.clear(); // Clear the existing data
+                            carAdapter.notifyDataSetChanged(); // Notify the adapter of the change
                             Toast.makeText(CustomersPage.this, "No cars found", Toast.LENGTH_SHORT).show();
                         }
                     }
@@ -268,6 +270,7 @@ public class CustomersPage extends AppCompatActivity implements Response.Listene
         // Add the request to the RequestQueue
         queue.add(request);
     }
+
 
     @Override
     public void onResponse(JSONArray jsonArray) {
