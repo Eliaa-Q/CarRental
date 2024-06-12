@@ -49,12 +49,20 @@ public class CustomersPage extends AppCompatActivity implements Response.Listene
     private CarAdapter carAdapter;
     private RecyclerView recyclerView;
     private String selectedBrand = ""; // Initialize selectedBrand
+    private String customerID; // Variable to store customerID
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_customers_page);
-        String customerID = getIntent().getStringExtra("CustomerID");
+        customerID = getIntent().getStringExtra("customerID");
+        System.out.println("heyyyy"+customerID);
+        Intent intent = new Intent(CustomersPage.this, RentalHistoryActivity.class);
+
+        intent.putExtra("customerID", customerID);
+        Intent intent2 = new Intent(CustomersPage.this, RentDetailsActivity.class);
+
+        intent2.putExtra("customerID", customerID);
 
         // Initialize views
         startdatetxt = findViewById(R.id.startdatetxt);
@@ -89,10 +97,10 @@ public class CustomersPage extends AppCompatActivity implements Response.Listene
         historyButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(CustomersPage.this, RentalHistoryActivity.class);
-                int customerID = 123; // Replace with actual customer ID
-                intent.putExtra("customerID", customerID);
+
+
                 startActivity(intent);
+
             }
         });
 
@@ -232,7 +240,7 @@ public class CustomersPage extends AppCompatActivity implements Response.Listene
                                 }
 
                                 // Update the adapter with new data
-                                carAdapter = new CarAdapter(carList, startdatetxt.getText().toString(), enddatetxt.getText().toString());
+                                carAdapter = new CarAdapter(carList, startdatetxt.getText().toString(), enddatetxt.getText().toString(), customerID);
                                 recyclerView.setAdapter(carAdapter);
                                 carAdapter.notifyDataSetChanged();
 

@@ -1,6 +1,8 @@
 package com.example.carrentalproject;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -52,8 +54,7 @@ public class CustomerScreen extends AppCompatActivity {
         edtTxtPassword = findViewById(R.id.edtTxtPassword);
     }
 
-
-    public void GoToSignUpScreen(){
+    public void GoToSignUpScreen() {
         btnCustomerSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -63,20 +64,17 @@ public class CustomerScreen extends AppCompatActivity {
         });
     }
 
-
-    public void loginCustomer(){
-        final String phoneNumber = edtTxtID.getText().toString().trim();
+    public void loginCustomer() {
+        final String idNumber = edtTxtID.getText().toString().trim();
         final String password = edtTxtPassword.getText().toString().trim();
 
-        // Check if the phone number or password fields are empty
-        if (phoneNumber.isEmpty() || password.isEmpty()) {
-            Toast.makeText(CustomerScreen.this, "Please enter both phone number and password", Toast.LENGTH_SHORT).show();
+        if (idNumber.isEmpty() || password.isEmpty()) {
+            Toast.makeText(CustomerScreen.this, "Please enter both ID number and password", Toast.LENGTH_SHORT).show();
             return;
         }
 
         String url = "http://192.168.0.149:80/CarRental/CustomerLogin.php";
-
-        Log.d("CustomerLogin", "URL: " + url);  // Log the URL for debugging
+        Log.d("CustomerLogin", "URL: " + url);
 
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
@@ -88,16 +86,16 @@ public class CustomerScreen extends AppCompatActivity {
                     String message = jsonObject.getString("message");
 
                     if (status.equals("success")) {
-                        // Login successful, proceed to the next activity
+
+                        saveUsername(idNumber);
+
                         Intent intent = new Intent(CustomerScreen.this, CustomersPage.class);
-                        intent.putExtra("CustomerID", phoneNumber); // Pass phone number to the next activity
+
+                        intent.putExtra("customerID",idNumber.toString());
                         startActivity(intent);
-                        finish(); // Finish current activity to prevent user from coming back with back button
                     } else {
-                        // Display error message
                         Toast.makeText(CustomerScreen.this, message, Toast.LENGTH_SHORT).show();
                         if (message.contains("Please sign up")) {
-                            // Navigate to sign up activity if user needs to sign up
                             Intent intent = new Intent(CustomerScreen.this, CustomerSignUp.class);
                             startActivity(intent);
                         }
@@ -117,18 +115,21 @@ public class CustomerScreen extends AppCompatActivity {
             @Override
             protected Map<String, String> getParams() {
                 Map<String, String> params = new HashMap<>();
-                params.put("phoneNumber", phoneNumber);
+                params.put("idNumber", idNumber);
                 params.put("password", password);
+                System.out.println("HERE" +idNumber +""+password);
                 return params;
             }
         };
 
-        // Add the request to the RequestQueue
         RequestQueue requestQueue = Volley.newRequestQueue(CustomerScreen.this);
         requestQueue.add(stringRequest);
     }
 
-
-
-
+    private void saveUsername(String idNumber) {
+        SharedPreferences sharedPreferences = getSharedPreferences("UserPrefs", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("firstName", idNumber);
+        editor.apply();
+    }
 }

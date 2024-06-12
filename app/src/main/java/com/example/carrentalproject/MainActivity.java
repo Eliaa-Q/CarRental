@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
         btnAdmin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, AddCarScreen.class);
+                Intent intent = new Intent(MainActivity.this, AdminScreen.class);
                 startActivity(intent);
             }
         });
@@ -34,8 +34,7 @@ public class MainActivity extends AppCompatActivity {
         btnCustomer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, CustomersPage.class);
-                intent.putExtra(String.valueOf(1000000004),"CustomerID");
+                Intent intent = new Intent(MainActivity.this, CustomerScreen.class);
                 startActivity(intent);
             }
         });

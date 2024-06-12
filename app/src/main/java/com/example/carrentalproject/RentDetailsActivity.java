@@ -64,7 +64,10 @@ public class RentDetailsActivity extends AppCompatActivity {
         String startDate = intent.getStringExtra("startDate");
         String endDate = intent.getStringExtra("endDate");
         //herorrrr
-        String customerID= "1000000004";
+        String customerID = intent.getStringExtra("customerID");
+        System.out.println("CUST ID IS:" +customerID);
+
+
 
 // Set data to views
         Glide.with(this).load(imagePath).into(carImage);
@@ -103,6 +106,7 @@ public class RentDetailsActivity extends AppCompatActivity {
         btnRentNow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 String url = "http://192.168.0.149:80/CarRental/add_rental.php";
                 RequestQueue queue = Volley.newRequestQueue(RentDetailsActivity.this);
 

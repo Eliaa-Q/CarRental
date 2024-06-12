@@ -38,7 +38,8 @@ public class RentalHistoryActivity extends AppCompatActivity {
         rentalRecyclerView.setAdapter(rentalAdapter);
 
         // Retrieve customerID from intent
-        customerID = 1000000004;
+        customerID = Integer.parseInt(getIntent().getStringExtra("customerID"));
+        //customerID = 1000000004;
         if (customerID != -1) {
             fetchRentalHistory(customerID);
         } else {

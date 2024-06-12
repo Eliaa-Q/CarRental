@@ -1,5 +1,7 @@
 package com.example.carrentalproject;
 
+import android.content.Intent;
+
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -24,16 +26,17 @@ public class CarAdapter extends RecyclerView.Adapter<CarAdapter.CarViewHolder> {
     private Context context;
     private String startDate;
     private String endDate;
+    String customerID;
 
     public CarAdapter( List<Car> carList) {
         this.carList = carList;
     }
-    public CarAdapter(List<Car> carList, String startDate, String endDate) {
+    public CarAdapter(List<Car> carList, String startDate, String endDate, String customerID) {
         this.carList = carList;
         this.startDate = startDate;
         this.endDate = endDate;
+        this.customerID = customerID;
     }
-
     @NonNull
     @Override
     public CarViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -69,11 +72,14 @@ public class CarAdapter extends RecyclerView.Adapter<CarAdapter.CarViewHolder> {
                 intent.putExtra("carPrice", car.getPrice());
                 intent.putExtra("carColor", car.getColor());
                 intent.putExtra("carStatus", car.getStatus());
-                intent.putExtra("carID", car.getCarID()+"");
+                intent.putExtra("carID", String.valueOf(car.getCarID()));
 
                 // Pass start date and end date to intent
                 intent.putExtra("startDate", startDate);
                 intent.putExtra("endDate", endDate);
+
+                // Pass customerID to intent
+                intent.putExtra("customerID", customerID);
 
                 // Start RentDetailsActivity
                 holder.itemView.getContext().startActivity(intent);
