@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="20dp"
+    tools:context=".UpdateCarScreen">
+
+    <TextView
+        android:id="@+id/textViewTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/update_car_s_details"
+        android:layout_marginStart="50dp"
+        style="@style/CustomTextStyle"
+        android:textSize="30sp" />
+
+
+    <Spinner
+        android:id="@+id/spinnerCarBrand"
+        style="@style/CustomTextStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textViewTitle"
+        android:layout_marginTop="100dp"
+        android:hint="@string/select_car_brand" />
+
+    <EditText
+        android:id="@+id/editTextCarModel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/spinnerCarBrand"
+        android:layout_marginTop="45dp"
+        android:hint="@string/enter_car_model" />
+
+    <EditText
+        android:id="@+id/editTextPrice"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextCarModel"
+        android:layout_marginTop="32dp"
+        android:hint="@string/enter_price"
+        android:inputType="numberDecimal" />
+
+    <EditText
+        android:id="@+id/editTextColor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextPrice"
+        android:layout_marginTop="28dp"
+        android:hint="@string/enter_color" />
+
+    <Spinner
+        android:id="@+id/spinnerStatus"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextColor"
+        android:layout_marginTop="19dp"
+        android:hint="@string/select_status" />
+
+    <Button
+        android:id="@+id/buttonUpdateImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/spinnerStatus"
+        android:layout_marginTop="37dp"
+        android:text="@string/insert_image" />
+
+    <Button
+        android:id="@+id/buttonUpdateCar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/buttonUpdateImage"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="51dp"
+        android:text="@string/insert_car" />
+
+</RelativeLayout>

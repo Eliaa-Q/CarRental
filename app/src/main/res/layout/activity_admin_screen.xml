@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/CustomerSc"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AdminScreen">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="30dp"
+        android:text="@string/admin_screen"
+        style="@style/CustomTextStyle"
+        android:textSize="30sp" />
+
+
+    <Button
+        android:id="@+id/btnCustomerLogin"
+        android:layout_width="203dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="250dp"
+        style="@style/CustomButton"
+        android:text="@string/login" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btnCustomerLogin"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="37dp"
+        android:text="@string/or_to_enter_a_new_admin_press_the_button_below"
+        style="@style/CustomTextStyle"
+        android:textSize="15sp" />
+
+    <Button
+        android:id="@+id/btncustomerSignUp"
+        android:layout_width="204dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textView4"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="15dp"
+        android:text="@string/sign_up1"
+        style="@style/CustomButton"/>
+
+    <EditText
+        android:id="@+id/edtTxtUsername"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="120dp"
+        android:ems="10"
+        android:hint="@string/enter_username"
+        android:inputType="text"
+        tools:ignore="TextFields"
+        android:autofillHints="" />
+
+    <EditText
+        android:id="@+id/edtTxtPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/edtTxtUsername"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="19dp"
+        android:ems="10"
+        android:hint="@string/enter_password2"
+        android:inputType="numberPassword"
+        android:autofillHints="" />
+
+
+
+
+</RelativeLayout>
