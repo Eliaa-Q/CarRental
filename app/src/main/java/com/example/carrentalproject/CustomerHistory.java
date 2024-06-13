@@ -22,14 +22,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class CustomerHistory extends AppCompatActivity {
 
     private RecyclerView recyclerView;
     private RentalAdapter adapter;
-    private List<RentalRequest> rentalList;
+    private List<Rental> rentalList;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -57,7 +56,7 @@ public class CustomerHistory extends AppCompatActivity {
                             JSONArray jsonArray = new JSONArray(response);
                             for (int i = 0; i < jsonArray.length(); i++) {
                                 JSONObject obj = jsonArray.getJSONObject(i);
-                                RentalRequest rental = new RentalRequest(obj);
+                                Rental rental = new Rental(obj);
                                 rentalList.add(rental);
                             }
                             adapter.notifyDataSetChanged();

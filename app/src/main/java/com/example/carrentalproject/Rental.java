@@ -4,12 +4,12 @@ package com.example.carrentalproject;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class RentalRequest {
+public class Rental {
     private int rentalID, idNumber, carID;
     private String startDate, endDate, status;
     private double totalPrice;
 
-    public RentalRequest(JSONObject obj) throws JSONException {
+    public Rental(JSONObject obj) throws JSONException {
         this.rentalID = obj.getInt(String.valueOf(rentalID));
         this.idNumber = obj.getInt(String.valueOf(idNumber));
         this.carID = obj.getInt(String.valueOf(carID));
@@ -19,7 +19,7 @@ public class RentalRequest {
         this.status = obj.getString(status);
     }
 
-    public RentalRequest(int rentalID, int idNumber, int carID, String startDate, String endDate, double totalPrice, String status) {
+    public Rental(int rentalID, int idNumber, int carID, String startDate, String endDate, double totalPrice, String status) {
         this.rentalID = rentalID;
         this.idNumber = idNumber;
         this.carID = carID;

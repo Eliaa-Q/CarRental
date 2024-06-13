@@ -25,10 +25,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 public class RentalAdapter extends RecyclerView.Adapter<RentalAdapter.RentalViewHolder> {
-    private List<RentalRequest> rentalList;
+    private List<Rental> rentalList;
     private Context context;
 
-    public RentalAdapter(List<RentalRequest> rentalList, Context context) {
+    public RentalAdapter(List<Rental> rentalList, Context context) {
         this.rentalList = rentalList;
         this.context = context;
     }
@@ -42,7 +42,7 @@ public class RentalAdapter extends RecyclerView.Adapter<RentalAdapter.RentalView
 
     @Override
     public void onBindViewHolder(@NonNull RentalViewHolder holder, int position) {
-        RentalRequest rental = rentalList.get(position);
+        Rental rental = rentalList.get(position);
 
         holder.rentalID.setText(String.valueOf(rental.getRentalID()));
         holder.idNumber.setText(String.valueOf(rental.getIdNumber()));

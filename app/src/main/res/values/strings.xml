@@ -28,12 +28,19 @@
     <string name="insert_car">Insert Car</string>
     <string name="update_car_s_details">Update Car\'s Details</string>
     <string name="go_button_text">Go</string>
-    <string name="hello_customer">Hello Customer</string>
+    <string name="welcome_customer">Welcome</string>
     <string name="history">History</string>
     <string name="start_date">Start Date</string>
     <string name="end_date">End Date</string>
     <string name="apply_filter">Apply Filter</string>
+    <string name="car_brand_model">Car Brand and Model</string>
+    <string name="car_price">Car Price</string>
+    <string name="car_color">Car Color</string>
+    <string name="car_status">Car Status</string>
+    <string name="total_cost">Total Cost:</string>
+    <string name="rent_now">Rent Now</string>
     <string-array name="car_brands">
+
         <item>ALL</item>
         <item>Toyota</item>
         <item>Honda</item>
@@ -58,4 +65,12 @@
         <item>Land Rover</item>
         <item>Maserati</item>
     </string-array>
+
+    <!-- Existing strings -->
+
+    <string name="this_is_a_list_of_all_your_rentals">This is a list of all your rentals</string>
+    <string name="start_datewithspace">Start Date:      </string>
+    <string name="end_datewithspace">End Date:        </string>
+    <string name="cancel">Cancel</string>
+
 </resources>

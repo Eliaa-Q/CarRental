@@ -22,7 +22,7 @@ public class RentalHistoryActivity extends AppCompatActivity {
 
     private RecyclerView rentalRecyclerView;
     private RentalAdapter rentalAdapter;
-    private List<RentalRequest> rentalList;
+    private List<Rental> rentalList;
     private int customerID;
 
     @Override
@@ -76,7 +76,7 @@ public class RentalHistoryActivity extends AppCompatActivity {
                                 String status = obj.getString("status");
 
                                 // Create a RentalRequest object and add it to the list
-                                RentalRequest rental = new RentalRequest(rentalID, idNumber, carID, startDate, endDate, Double.parseDouble(totalPrice), status);
+                                Rental rental = new Rental(rentalID, idNumber, carID, startDate, endDate, Double.parseDouble(totalPrice), status);
                                 rentalList.add(rental);
                             }
                             rentalAdapter.notifyDataSetChanged();

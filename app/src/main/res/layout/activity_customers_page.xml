@@ -30,18 +30,16 @@
             android:layout_marginRight="110dp"
             android:layout_marginBottom="10dp"
             android:fontFamily="sans-serif-black"
-            android:text="Hello Customer"
+            android:text="@string/welcome_customer"
             android:textColor="@color/navyblue"
             android:textSize="20sp" />
 
         <Button
             android:id="@+id/history_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            style="@style/ButtonStyle"
             android:layout_gravity="center"
             android:layout_weight="1"
-            android:backgroundTint="@color/navyblue"
-            android:text="History"
+            android:text="@string/history"
             android:textSize="14sp"
             app:cornerRadius="20dp" />
     </LinearLayout>
@@ -60,7 +58,7 @@
             android:layout_marginRight="7dp"
             android:layout_weight="1"
             android:fontFamily="sans-serif-black"
-            android:text=" Start Date"
+            android:text="@string/start_date"
             android:textSize="14sp" />
 
         <Button
@@ -68,7 +66,6 @@
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_weight="1"
-            android:height="40dp"
             android:backgroundTint="#FFFFFF"
             android:foreground="@drawable/icons_date"
             android:text="Button"
@@ -89,16 +86,14 @@
             android:layout_marginRight="7dp"
             android:layout_weight="1"
             android:fontFamily="sans-serif-black"
-            android:text=" End Date"
+            android:text="@string/end_date"
             android:textSize="14sp" />
 
         <Button
             android:id="@+id/enddatebtn"
-
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_weight="1"
-            android:height="40dp"
             android:backgroundTint="#FFFFFF"
             android:foreground="@drawable/icons_date"
             android:text="Button"
@@ -134,18 +129,14 @@
 
         <Button
             android:id="@+id/filterButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            style="@style/ButtonStyle"
             android:layout_marginTop="10dp"
             android:layout_weight="1"
             android:height="30dp"
-            android:backgroundTint="@color/navyblue"
-            android:text="Apply Filter"
+            android:text="@string/apply_filter"
             android:textSize="16sp"
             app:cornerRadius="10dp" />
     </LinearLayout>
-
-    <!-- Spinner -->
 
     <!-- RecyclerView -->
     <androidx.recyclerview.widget.RecyclerView
